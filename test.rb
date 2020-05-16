@@ -13,38 +13,37 @@ require_relative 'task'
 
 # READ (one)
 puts '> READ (one)'
-task = Task.find(1)
-puts "#{task.title}: #{task.description} (done: #{task.done})"
+# Your code here!
+task = Task.find(1) 
+puts "#{task.title}: #{task.description} #{task.done ? '[X]' : '[ ]'}"
 
-# WRITE
-puts '> WRITE'
-task = Task.new(title: "Wake up!", description: "RIGHT, NOW!!")
-task.save
-task = Task.new(title: "Find article for the batch!", description: "Article about managing massive multi query on DB")
-task.save
-puts "The new id is: #{task.id}"
-puts "#{task.title}: #{task.description} (done: #{task.done})"
+# CREATE
+puts '> CREATE'
+# Your code here!
+new_task = Task.new(title: "Shooping", description: "Put my mask on and go to the combini")
+# p new_task
+new_task.save
+# p new_task
 
 # UPDATE
 puts '> UPDATE'
+# Your code here!
 task = Task.find(2)
+# p task
 task.done = true
 task.save
-puts "The updated id is: #{task.id}"
-puts "#{task.title}: #{task.description} (done: #{task.done})"
+# p task
 
 # READ (all)
 puts '> READ (all)'
+# Your code here!
 tasks = Task.all
 tasks.each do |task|
-  puts "[#{task.id}] #{task.title}: #{task.description} (done: #{task.done})"
+  puts "#{task.title}: #{task.description} #{task.done ? '[X]' : '[ ]'}"
 end
 
 # DELETE
 puts '> DELETE'
+# Your code here!
 task = Task.find(2)
 task.delete
-tasks = Task.all
-tasks.each do |task|
-  puts "[#{task.id}] #{task.title}: #{task.description} (done: #{task.done})"
-end
